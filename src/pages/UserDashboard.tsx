@@ -731,28 +731,11 @@ export default function UserDashboard() {
               <div className="absolute inset-0 bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end rounded-2xl opacity-10"></div>
               <div className="relative flex items-center justify-between p-6 rounded-2xl bg-dashboard-card-bg/50 backdrop-blur-sm border border-white/20 shadow-lg">
                 <div className="flex items-center gap-4">
-                  <SidebarTrigger className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors" data-sidebar="trigger" />
                   <div>
-                    <h1 className="text-xl font-bold bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent">
-                       Sawasdee krap, {profile?.display_name || "User"}! 😊
+                    <h1 className="text-xl font-bold">
+                       <span className="text-primary">Sawasdee krap,</span> <span className="bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent">{profile?.display_name || "User"}! 😊</span>
                      </h1>
                      <p className="text-muted-foreground">Wishing you a lovely day</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Avatar className="h-12 w-12 ring-2 ring-primary/20">
-                    <AvatarImage src={profile?.avatar_url} />
-                    <AvatarFallback className="bg-gradient-to-br from-dashboard-gradient-start to-dashboard-gradient-end text-white">
-                      {profile?.display_name?.[0] || user?.email?.[0]?.toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="hidden sm:block">
-                    <p className="font-medium">
-                      {profile?.display_name || "User"}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {user?.email}
-                    </p>
                   </div>
                 </div>
               </div>
