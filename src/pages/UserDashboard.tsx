@@ -451,7 +451,7 @@ export default function UserDashboard() {
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <Button 
                   onClick={() => handleSidebarAction("add-listing")}
-                  className="h-auto p-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 flex-col gap-2 border-0 shadow-lg"
+                  className="h-auto p-6 bg-gradient-to-r from-primary via-purple-500 to-pink-500 hover:from-purple-500 hover:via-pink-500 hover:to-primary animate-gradient bg-[length:200%_200%] flex-col gap-2 border-0 shadow-lg text-white"
                 >
                   <Plus className="h-6 w-6" />
                   <span className="font-medium">List Your Business</span>
@@ -733,7 +733,7 @@ export default function UserDashboard() {
                 <div className="flex items-center gap-4">
                   <div>
                     <h1 className="text-xl font-bold">
-                       <span className="text-primary">Sawasdee krap,</span> <span className="bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent">{profile?.display_name || "User"}!</span> <span className="inline-block animate-wave origin-[70%_70%]">👋</span>
+                       <span className="text-primary">Sawasdee krap,</span> <span className="text-orange-500 font-extrabold">{profile?.display_name || "User"}!</span> <span className="inline-block animate-wave origin-[70%_70%]">👋</span>
                      </h1>
                      <p className="text-muted-foreground">Wishing you a lovely day</p>
                   </div>
