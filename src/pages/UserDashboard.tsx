@@ -742,10 +742,10 @@ export default function UserDashboard() {
                 <div className="flex items-center gap-4">
                   <SidebarTrigger className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors" data-sidebar="trigger" />
                   <div>
-                    <h1 className="text-2xl font-bold bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent">
-                      Welcome back, {profile?.display_name || "User"}!
-                    </h1>
-                    <p className="text-muted-foreground">Manage your business presence with ease</p>
+                    <h1 className="text-xl font-bold bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent">
+                       Sawasdee krap, {profile?.display_name || "User"}! 😊
+                     </h1>
+                     <p className="text-muted-foreground">Wishing you a lovely day</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
