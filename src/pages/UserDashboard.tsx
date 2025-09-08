@@ -442,15 +442,6 @@ export default function UserDashboard() {
       default:
         return (
           <div className="space-y-8">
-            <div className="text-center py-4">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent mb-2">
-                Dashboard Overview
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Track your business performance and manage your listings from one central place
-              </p>
-            </div>
-            
             {/* Quick Actions Section */}
             <div className="animate-slide-up">
               <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
