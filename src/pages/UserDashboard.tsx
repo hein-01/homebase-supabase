@@ -733,7 +733,7 @@ export default function UserDashboard() {
                 <div className="flex items-center gap-4">
                   <div>
                     <h1 className="text-xl font-bold">
-                       <span className="text-primary">Sawasdee krap,</span> <span className="bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent">{profile?.display_name || "User"}! 😊</span>
+                       <span className="text-primary">Sawasdee krap,</span> <span className="bg-gradient-to-r from-dashboard-gradient-start to-dashboard-gradient-end bg-clip-text text-transparent">{profile?.display_name || "User"}!</span> <span className="inline-block animate-wave origin-[70%_70%]">👋</span>
                      </h1>
                      <p className="text-muted-foreground">Wishing you a lovely day</p>
                   </div>
