@@ -477,6 +477,78 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
             </div>
           </div>
 
+          {/* Products Catalog */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <Package className="h-4 w-4 text-muted-foreground" />
+              <Label>Products/Services Catalog</Label>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {PREDEFINED_PRODUCTS.map((product) => (
+                <div key={product} className="flex items-center space-x-2">
+                  <Checkbox
+                    id={product}
+                    checked={formData.productsCatalog.includes(product)}
+                    onCheckedChange={(checked) => handleProductChange(product, checked as boolean)}
+                  />
+                  <Label htmlFor={product} className="text-sm">
+                    {product}
+                  </Label>
+                </div>
+              ))}
+            </div>
+
+          {/* Custom Products */}
+            <div className="space-y-4">
+              <Label className="text-sm font-medium text-foreground">Add Custom Products/Services</Label>
+              <div className="flex gap-2">
+                <Input
+                  value={newProductName}
+                  onChange={(e) => setNewProductName(e.target.value)}
+                  placeholder="Enter product/service name"
+                  className="flex-1 border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      addCustomProduct();
+                    }
+                  }}
+                />
+                <Button 
+                  type="button" 
+                  onClick={addCustomProduct}
+                  className="px-4 bg-gradient-to-r from-primary to-dashboard-gradient-end hover:from-primary/90 hover:to-dashboard-gradient-end/90 shadow-md hover:shadow-lg transition-all duration-200"
+                >
+                  <Plus className="h-4 w-4" />
+                </Button>
+              </div>
+
+              {/* Display custom products */}
+              {customProducts.length > 0 && (
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground">Custom products/services:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {customProducts.map((product) => (
+                      <div key={product} className="flex items-center gap-2 bg-accent/20 border border-accent/40 rounded-lg px-3 py-1.5 shadow-sm">
+                        <span className="text-sm font-medium text-accent-foreground">{product}</span>
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => removeCustomProduct(product)}
+                          className="h-5 w-5 p-0 hover:bg-destructive/10 hover:text-destructive transition-colors"
+                        >
+                          <X className="h-3 w-3" />
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
           <div className="space-y-3">
             <Label htmlFor="description" className="text-sm font-medium text-foreground">Business Description *</Label>
             <Textarea
@@ -823,70 +895,6 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
                   </Label>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Products Catalog */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Package className="h-4 w-4 text-muted-foreground" />
-              <Label>Products/Services Catalog</Label>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {PREDEFINED_PRODUCTS.map((product) => (
-                <div key={product} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={product}
-                    checked={formData.productsCatalog.includes(product)}
-                    onCheckedChange={(checked) => handleProductChange(product, checked as boolean)}
-                  />
-                  <Label htmlFor={product} className="text-sm">
-                    {product}
-                  </Label>
-                </div>
-              ))}
-            </div>
-
-          {/* Custom Products */}
-            <div className="space-y-4">
-              <Label className="text-sm font-medium text-foreground">Add Custom Products/Services</Label>
-              <div className="flex gap-2">
-                <Input
-                  value={newProductName}
-                  onChange={(e) => setNewProductName(e.target.value)}
-                  placeholder="Enter product/service name"
-                  onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomProduct())}
-                  className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80 flex-1"
-                />
-                <Button 
-                  type="button" 
-                  onClick={addCustomProduct} 
-                  variant="outline"
-                  className="border-2 border-primary/40 bg-primary/5 hover:bg-primary/10 hover:border-primary/60 shadow-sm"
-                >
-                  <Plus className="h-4 w-4" />
-                </Button>
-              </div>
-              
-              {customProducts.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {customProducts.map((product) => (
-                    <div key={product} className="flex items-center gap-2 bg-gradient-to-r from-secondary to-accent px-3 py-2 rounded-lg text-sm border shadow-sm">
-                      <span className="text-secondary-foreground font-medium">{product}</span>
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => removeCustomProduct(product)}
-                        className="h-auto p-0 w-5 h-5 hover:bg-destructive/20 hover:text-destructive"
-                      >
-                        <X className="h-3 w-3" />
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
 
