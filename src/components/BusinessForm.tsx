@@ -437,37 +437,38 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Building2 className="h-5 w-5" />
+    <Card className="border-2 border-border/60 shadow-xl bg-gradient-to-br from-card to-accent/20 backdrop-blur-sm">
+      <CardHeader className="border-b border-border/40 bg-gradient-to-r from-primary/5 to-dashboard-gradient-end/5">
+        <CardTitle className="flex items-center gap-3 text-xl">
+          <Building2 className="h-6 w-6 text-primary" />
           Business Information
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+      <CardContent className="p-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
           {/* Basic Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label htmlFor="name">Business Name *</Label>
+            <div className="space-y-3">
+              <Label htmlFor="name" className="text-sm font-medium text-foreground">Business Name *</Label>
               <Input
                 id="name"
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
                 placeholder="Enter your business name"
                 required
+                className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="category">Category *</Label>
+            <div className="space-y-3">
+              <Label htmlFor="category" className="text-sm font-medium text-foreground">Category *</Label>
               <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
-                <SelectTrigger>
+                <SelectTrigger className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80">
                   <SelectValue placeholder="Select a category" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="border-2 border-border/60 bg-card shadow-lg">
                   {BUSINESS_CATEGORIES.map((category) => (
-                    <SelectItem key={category} value={category}>
+                    <SelectItem key={category} value={category} className="hover:bg-accent focus:bg-accent">
                       {category}
                     </SelectItem>
                   ))}
@@ -476,8 +477,8 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
             </div>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="description">Business Description *</Label>
+          <div className="space-y-3">
+            <Label htmlFor="description" className="text-sm font-medium text-foreground">Business Description *</Label>
             <Textarea
               id="description"
               value={formData.description}
@@ -485,12 +486,13 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
               placeholder="Describe your business, services, and what makes you unique..."
               rows={4}
               required
+              className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80 resize-none"
             />
           </div>
 
           {/* Logo Upload */}
-          <div className="space-y-2">
-            <Label htmlFor="logo">Business Logo</Label>
+          <div className="space-y-3">
+            <Label htmlFor="logo" className="text-sm font-medium text-foreground">Business Logo</Label>
             <div className="relative">
               <input
                 id="logo"
@@ -501,23 +503,23 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
               />
               <label
                 htmlFor="logo"
-                className="flex items-center justify-center gap-3 w-full p-6 border-2 border-dashed border-primary/30 rounded-lg bg-primary/5 hover:bg-primary/10 hover:border-primary/50 transition-all duration-200 cursor-pointer group"
+                className="flex items-center justify-center gap-3 w-full p-8 border-2 border-dashed border-primary/40 rounded-xl bg-gradient-to-br from-primary/5 to-dashboard-gradient-end/5 hover:from-primary/10 hover:to-dashboard-gradient-end/10 hover:border-primary/60 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
               >
-                <Upload className="h-6 w-6 text-primary group-hover:text-primary/80 transition-colors" />
+                <Upload className="h-7 w-7 text-primary group-hover:text-primary/80 transition-colors" />
                 <div className="text-center">
-                  <p className="text-sm font-medium text-primary group-hover:text-primary/80">
+                  <p className="text-sm font-semibold text-primary group-hover:text-primary/80 mb-1">
                     Choose Logo File
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">
+                  <p className="text-xs text-muted-foreground">
                     PNG, JPG up to 1MB
                   </p>
                 </div>
               </label>
             </div>
             {logoFile && (
-              <div className="flex items-center gap-2 p-2 bg-green-50 border border-green-200 rounded-md">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <p className="text-sm text-green-700">Selected: {logoFile.name}</p>
+              <div className="flex items-center gap-3 p-3 bg-emerald-50 border-2 border-emerald-200 rounded-lg shadow-sm">
+                <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+                <p className="text-sm font-medium text-emerald-700">Selected: {logoFile.name}</p>
               </div>
             )}
           </div>
@@ -603,14 +605,14 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
               />
               <label
                 htmlFor="productImages"
-                className="flex items-center justify-center gap-3 w-full p-6 border-2 border-dashed border-blue-300 rounded-lg bg-blue-50 hover:bg-blue-100 hover:border-blue-400 transition-all duration-200 cursor-pointer group"
+                className="flex items-center justify-center gap-3 w-full p-8 border-2 border-dashed border-blue-400/50 rounded-xl bg-gradient-to-br from-blue-50/80 to-blue-100/50 hover:from-blue-100/90 hover:to-blue-200/60 hover:border-blue-500/60 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
               >
-                <Camera className="h-6 w-6 text-blue-600 group-hover:text-blue-700 transition-colors" />
+                <Camera className="h-7 w-7 text-blue-600 group-hover:text-blue-700 transition-colors" />
                 <div className="text-center">
-                  <p className="text-sm font-medium text-blue-700 group-hover:text-blue-800">
+                  <p className="text-sm font-semibold text-blue-700 group-hover:text-blue-800 mb-1">
                     Choose Product Images
                   </p>
-                  <p className="text-xs text-blue-600 mt-1">
+                  <p className="text-xs text-blue-600">
                     {(existingImages.length + productImages.length) < 3 ? 
                       `Add ${3 - (existingImages.length + productImages.length)} more images (PNG, JPG, max 1MB each)` :
                       'Maximum 3 images reached'
@@ -623,131 +625,138 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
 
           {/* Contact Information */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <Label htmlFor="phone">Phone Number *</Label>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-muted-foreground" />
+            <div className="space-y-3">
+              <Label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number *</Label>
+              <div className="relative">
+                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="phone"
                   value={formData.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
                   placeholder="(555) 123-4567"
                   required
+                  className="pl-10 border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
                 />
               </div>
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="licenseExpiredDate">License Expiration Date</Label>
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-muted-foreground" />
+            <div className="space-y-3">
+              <Label htmlFor="licenseExpiredDate" className="text-sm font-medium text-foreground">License Expiration Date</Label>
+              <div className="relative">
+                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="licenseExpiredDate"
                   type="date"
                   value={formData.licenseExpiredDate}
                   onChange={(e) => handleInputChange('licenseExpiredDate', e.target.value)}
+                  className="pl-10 border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
                 />
               </div>
             </div>
           </div>
 
           {/* Location Information */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="flex items-center gap-2 mb-2">
-              <MapPin className="h-4 w-4 text-muted-foreground" />
-              <Label>Business Address</Label>
+              <MapPin className="h-5 w-5 text-primary" />
+              <Label className="text-base font-semibold text-foreground">Business Address</Label>
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y-3">
               <Input
                 value={formData.address}
                 onChange={(e) => handleInputChange('address', e.target.value)}
                 placeholder="Street address"
+                className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
               />
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="space-y-2">
-                <Label>Province/District/State</Label>
+              <div className="space-y-3">
+                <Label className="text-sm font-medium text-foreground">Province/District/State</Label>
                 <Select value={selectedProvince} onValueChange={handleProvinceChange}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80">
                     <SelectValue placeholder="Select province/district/state" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="border-2 border-border/60 bg-card shadow-lg">
                     {locations.map((location) => (
-                      <SelectItem key={location.id} value={location.province_district}>
+                      <SelectItem key={location.id} value={location.province_district} className="hover:bg-accent focus:bg-accent">
                         {location.province_district}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label>Town</Label>
+              <div className="space-y-3">
+                <Label className="text-sm font-medium text-foreground">Town</Label>
                 <Select value={formData.city} onValueChange={(value) => handleInputChange('city', value)}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80">
                     <SelectValue placeholder="Select a town" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="border-2 border-border/60 bg-card shadow-lg">
                     {availableTowns.map((town) => (
-                      <SelectItem key={town} value={town}>
+                      <SelectItem key={town} value={town} className="hover:bg-accent focus:bg-accent">
                         {town}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label>Zip Code</Label>
+              <div className="space-y-3">
+                <Label className="text-sm font-medium text-foreground">Zip Code</Label>
                 <Input
                   value={formData.zipCode}
                   onChange={(e) => handleInputChange('zipCode', e.target.value)}
                   placeholder="ZIP code"
+                  className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
                 />
               </div>
             </div>
           </div>
 
           {/* Online Presence */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <Globe className="h-4 w-4 text-muted-foreground" />
-                  <Label htmlFor="website">Website</Label>
+                  <Globe className="h-5 w-5 text-primary" />
+                  <Label htmlFor="website" className="text-sm font-medium text-foreground">Website</Label>
                 </div>
                 <Input
                   id="website"
                   value={formData.website}
                   onChange={(e) => handleInputChange('website', e.target.value)}
                   placeholder="https://your-website.com"
+                  className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
                 />
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <Facebook className="h-4 w-4 text-muted-foreground" />
-                  <Label htmlFor="facebookPage">Facebook Page</Label>
+                  <Facebook className="h-5 w-5 text-blue-600" />
+                  <Label htmlFor="facebookPage" className="text-sm font-medium text-foreground">Facebook Page</Label>
                 </div>
                 <Input
                   id="facebookPage"
                   value={formData.facebookPage}
                   onChange={(e) => handleInputChange('facebookPage', e.target.value)}
                   placeholder="https://facebook.com/yourpage"
+                  className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
                 />
               </div>
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <Music className="h-4 w-4 text-muted-foreground" />
-                <Label htmlFor="tiktokUrl">TikTok</Label>
+                <Music className="h-5 w-5 text-pink-600" />
+                <Label htmlFor="tiktokUrl" className="text-sm font-medium text-foreground">TikTok</Label>
               </div>
               <Input
                 id="tiktokUrl"
                 value={formData.tiktokUrl}
                 onChange={(e) => handleInputChange('tiktokUrl', e.target.value)}
                 placeholder="https://tiktok.com/@yourusername"
+                className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
               />
             </div>
           </div>
@@ -784,16 +793,17 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
           </div>
 
           {/* Pricing */}
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
-              <Label htmlFor="startingPrice">Starting Price</Label>
+              <DollarSign className="h-5 w-5 text-green-600" />
+              <Label htmlFor="startingPrice" className="text-sm font-medium text-foreground">Starting Price</Label>
             </div>
             <Input
               id="startingPrice"
               value={formData.startingPrice}
               onChange={(e) => handleInputChange('startingPrice', e.target.value)}
               placeholder="$20, From $50, etc."
+              className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80"
             />
           </div>
 
@@ -838,32 +848,38 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
               ))}
             </div>
 
-            {/* Custom Products */}
-            <div className="space-y-2">
-              <Label>Add Custom Products/Services</Label>
+          {/* Custom Products */}
+            <div className="space-y-4">
+              <Label className="text-sm font-medium text-foreground">Add Custom Products/Services</Label>
               <div className="flex gap-2">
                 <Input
                   value={newProductName}
                   onChange={(e) => setNewProductName(e.target.value)}
                   placeholder="Enter product/service name"
                   onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomProduct())}
+                  className="border-2 border-border/60 bg-card shadow-sm focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 hover:border-border/80 flex-1"
                 />
-                <Button type="button" onClick={addCustomProduct} variant="outline">
+                <Button 
+                  type="button" 
+                  onClick={addCustomProduct} 
+                  variant="outline"
+                  className="border-2 border-primary/40 bg-primary/5 hover:bg-primary/10 hover:border-primary/60 shadow-sm"
+                >
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
               
               {customProducts.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-2">
+                <div className="flex flex-wrap gap-2 mt-3">
                   {customProducts.map((product) => (
-                    <div key={product} className="flex items-center gap-1 bg-secondary text-secondary-foreground px-2 py-1 rounded-md text-sm">
-                      <span>{product}</span>
+                    <div key={product} className="flex items-center gap-2 bg-gradient-to-r from-secondary to-accent px-3 py-2 rounded-lg text-sm border shadow-sm">
+                      <span className="text-secondary-foreground font-medium">{product}</span>
                       <Button
                         type="button"
                         variant="ghost"
                         size="sm"
                         onClick={() => removeCustomProduct(product)}
-                        className="h-auto p-0 w-4 h-4 hover:bg-destructive hover:text-destructive-foreground"
+                        className="h-auto p-0 w-5 h-5 hover:bg-destructive/20 hover:text-destructive"
                       >
                         <X className="h-3 w-3" />
                       </Button>

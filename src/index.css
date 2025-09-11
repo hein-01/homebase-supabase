@@ -75,6 +75,13 @@ All colors MUST be HSL.
     --quick-actions-website: 140 50% 96%;
     --quick-actions-website-foreground: 140 60% 25%;
     --quick-actions-website-hover: 140 50% 89%;
+    
+    /* Enhanced Form Field Colors */
+    --form-field-border: 214.3 31.8% 85%;
+    --form-field-border-hover: 214.3 31.8% 78%;
+    --form-field-shadow: 254 30% 95%;
+    --form-upload-bg: 254 100% 98%;
+    --form-upload-border: 254 60% 85%;
   }
 
   .dark {
