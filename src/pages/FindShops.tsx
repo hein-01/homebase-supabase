@@ -91,7 +91,12 @@ export default function FindShops() {
       const page = reset ? 0 : currentPage;
       
       // Prepare search parameters for RPC call
-      const searchTerms = searchTerm ? [searchTerm] : null;
+      let searchTerms = null;
+      if (searchTerm) {
+        // Use enhanced synonym expansion for better matching
+        const expandedTerms = expandSearchTerms(searchTerm);
+        searchTerms = expandedTerms.length > 0 ? expandedTerms : [searchTerm];
+      }
       
       // Get category ID for selected category
       let categoryId = null;
