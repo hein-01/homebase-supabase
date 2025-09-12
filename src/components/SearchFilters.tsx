@@ -107,14 +107,14 @@ export const SearchFilters = ({
               type="button" 
               variant="outline" 
               className={`border-2 shadow-md hover:shadow-lg transition-all duration-200 ${
-                selectedDelivery.includes("cash_on_delivery") 
+                selectedDelivery.includes("Cash on Delivery") 
                   ? "text-green-700 border-green-500 bg-green-50" 
                   : "hover:text-green-700 hover:border-green-500 hover:bg-green-50"
               }`}
               onClick={() => {
-                const newSelection = selectedDelivery.includes("cash_on_delivery")
-                  ? selectedDelivery.filter(item => item !== "cash_on_delivery")
-                  : [...selectedDelivery, "cash_on_delivery"];
+                const newSelection = selectedDelivery.includes("Cash on Delivery")
+                  ? selectedDelivery.filter(item => item !== "Cash on Delivery")
+                  : [...selectedDelivery, "Cash on Delivery"];
                 setSelectedDelivery(newSelection);
                 onDeliveryFilter?.(newSelection.join(","));
               }}
@@ -127,14 +127,14 @@ export const SearchFilters = ({
               type="button" 
               variant="outline" 
               className={`border-2 shadow-md hover:shadow-lg transition-all duration-200 ${
-                selectedDelivery.includes("store_pickup") 
+                selectedDelivery.includes("Pickup In-Store") 
                   ? "text-blue-700 border-blue-500 bg-blue-50" 
                   : "hover:text-blue-700 hover:border-blue-500 hover:bg-blue-50"
               }`}
               onClick={() => {
-                const newSelection = selectedDelivery.includes("store_pickup")
-                  ? selectedDelivery.filter(item => item !== "store_pickup")
-                  : [...selectedDelivery, "store_pickup"];
+                const newSelection = selectedDelivery.includes("Pickup In-Store")
+                  ? selectedDelivery.filter(item => item !== "Pickup In-Store")
+                  : [...selectedDelivery, "Pickup In-Store"];
                 setSelectedDelivery(newSelection);
                 onDeliveryFilter?.(newSelection.join(","));
               }}
