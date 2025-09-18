@@ -295,7 +295,7 @@ export default function FindShops() {
       <Navbar />
       
       {/* Mobile SearchFilters - positioned directly below navbar */}
-      <div className="md:hidden">
+      <div className="md:hidden pt-16">
         <SearchFilters
           onSearchChange={setSearchTerm}
           onCategoryChange={setSelectedCategory}
