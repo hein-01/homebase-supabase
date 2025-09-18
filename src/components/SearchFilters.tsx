@@ -48,7 +48,7 @@ export const SearchFilters = ({
           Search & Filters
         </div>
         
-        <div className="space-y-4">
+        <div className="space-y-4 md:space-y-4 space-y-2">
           {/* Desktop layout */}
           <div className="hidden md:flex gap-2">
             <form onSubmit={handleSearchSubmit} className="relative flex-1">
