@@ -124,17 +124,6 @@ export const SearchFilters = ({
             
             {/* Location and Filter buttons */}
             <div className="flex gap-1 w-full">
-              <LocationsModal key={`locations-${resetVersion}`} onLocationChange={onLocationChange}>
-                <Button 
-                  type="button" 
-                  variant="outline"
-                  className="border-2 shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 h-8 md:h-10"
-                >
-                  <MapPin className="h-4 w-4 mr-2" />
-                  Locations
-                </Button>
-              </LocationsModal>
-              
               <FiltersModal key={`filters-${resetVersion}`}
                 onSearchChange={onSearchChange}
                 onCategoryChange={onCategoryChange}
@@ -154,6 +143,17 @@ export const SearchFilters = ({
                   Filters
                 </Button>
               </FiltersModal>
+              
+              <LocationsModal key={`locations-${resetVersion}`} onLocationChange={onLocationChange}>
+                <Button 
+                  type="button" 
+                  variant="outline"
+                  className="border-2 shadow-md hover:shadow-lg transition-shadow duration-200 flex-1 h-8 md:h-10"
+                >
+                  <MapPin className="h-4 w-4 mr-2" />
+                  Locations
+                </Button>
+              </LocationsModal>
             </div>
           </div>
           
